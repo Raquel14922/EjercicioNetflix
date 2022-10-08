@@ -38,7 +38,7 @@ pipeline {
                         sh 'docker login -u $USERNAME -p $PASSWORD'
                         sh "docker build -t raquelch/eureka:latest ."
                         sh 'docker stop eureka || true'
-                        sh 'docker run -d --rm --name eureka -e SPRING_PROFILES_ACTIVE=dev -e HOST_IP_ADDRESS=192.168.1.133 -p 8761:8761 raquelch/eureka:latest'
+                        sh 'docker run -d --rm --name eureka -e SPRING_PROFILES_ACTIVE=dev -e HOST_IP_ADDRESS=192.168.1.7 -p 8761:8761 raquelch/eureka:latest'
                         //sh 'docker push raquelch/eureka:latest'
                     }
                 }
@@ -58,7 +58,7 @@ pipeline {
                         sh 'docker login -u $USERNAME -p $PASSWORD'
                         sh "docker build -t raquelch/ordenes-service:latest ."
                         sh 'docker stop ordenes-service || true'
-                        sh 'docker run -d --rm --name ordenes-service -e SPRING_PROFILES_ACTIVE=dev -e HOST_IP_ADDRESS=192.168.1.133 -p 8020:8020 raquelch/ordenes-service:latest'
+                        sh 'docker run -d --rm --name ordenes-service -e SPRING_PROFILES_ACTIVE=dev -e HOST_IP_ADDRESS=192.168.1.7 -p 8020:8020 raquelch/ordenes-service:latest'
                         //sh 'docker push raquelch/ordenes-service:latest'
                     }
                 }
@@ -78,7 +78,7 @@ pipeline {
                         sh 'docker login -u $USERNAME -p $PASSWORD'
                         sh "docker build -t raquelch/productos-service:latest ."
                         sh 'docker stop productos-service || true'
-                        sh 'docker run -d --rm --name productos-service -e SPRING_PROFILES_ACTIVE=dev -e HOST_IP_ADDRESS=192.168.1.133 -p 8030:8030 raquelch/productos-service:latest'
+                        sh 'docker run -d --rm --name productos-service -e SPRING_PROFILES_ACTIVE=dev -e HOST_IP_ADDRESS=192.168.1.7 -p 8030:8030 raquelch/productos-service:latest'
                         //sh 'docker push raquelch/productos-service:latest'
                     }
                 }
